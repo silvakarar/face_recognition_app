@@ -18,7 +18,7 @@ class Signin extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    fetch('http://localhost:3000/signIn', {
+    fetch('http://localhost:3000/signin', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -71,7 +71,7 @@ class Signin extends React.Component {
             <div className="center">
               <input
                 onClick={this.onSubmitSignIn}
-                className="white b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib "
+                className=" white b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Sign in"
               />

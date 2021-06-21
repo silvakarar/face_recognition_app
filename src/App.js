@@ -34,16 +34,30 @@ class App extends Component {
       input: '',
       imageUrl: '',
       box: {},
-      route: 'signIn',
+      route: 'signin',
       isSignedIn: false,
+      user: {
+        id: '',
+        name: '',
+        password: '',
+        email: '',
+        entries: 0,
+        joined: '',
+      }
     };
   }
 
-  // componentDidMount() {
-  //   fetch('http://localhost:3000/')
-  //     .then(res => res.json())
-  //     .then(console.log);
-  // }
+  loadUser = data => {
+    this.setState({
+      user: {
+        id: data.id,
+        name: data.name,
+        password: data.password,
+        email: data.email,
+        entries: data.entries,
+        joined: data.joined,
+    } })
+  }
 
   calculateFaceLocation = data => {
     const clarifaiFace =
@@ -99,17 +113,17 @@ class App extends Component {
         {route === 'home' ? (
           <div>
             <Logo />
-            <Rank />
+            <Rank name={this.state.user.name} entries={this.state.user.entries}/> 
             <ImageLinkForm
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
             />
             <FaceRecognition imageUrl={imageUrl} box={box} />
           </div>
-        ) : route === 'signIn' ? (
+        ) : route === 'signin' ? (
           <SignIn onRouteChange={this.onRouteChange} />
         ) : (
-          <Register onRouteChange={this.onRouteChange} />
+          <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
         )}
       </div>
     );

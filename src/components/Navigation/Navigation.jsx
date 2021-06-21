@@ -25,7 +25,7 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
             marginRight: '1rem',
             marginTop: '0'}} >
           <p
-            onClick={() => onRouteChange('signIn')}
+            onClick={() => onRouteChange('signin')}
             className="f3 link dim white underline pa3 pointer">
           Sign In
           </p>
