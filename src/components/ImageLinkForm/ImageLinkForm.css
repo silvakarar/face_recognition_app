@@ -1,0 +1,15 @@
+.form {
+    width: 700px;
+    background-image: linear-gradient(to left, #90f7ec 10%, #32ccbc 100%);
+    background-size: 4px 2px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    border: none;
+    margin-bottom: 14em;
+  }
+  
+  .form input:focus,
+   textarea:focus {
+    outline: none;
+    border: none;
+  }
+  
