@@ -1,42 +1,37 @@
 import React from 'react';
 
-class Signin extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      signInEmail: '',
-      signInPassword: '',
-    };
-  }
+const SignIn = ({onRouteChange}) => {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       signInEmail: '',
+//       signInPassword: '',
+//     };
+//   }
 
-  onEmailChange = event => {
-    this.setState({ signInEmail: event.target.value });
-  };
+//   onEmailChange = event => {
+//     this.setState({ signInEmail: event.target.value });
+//   };
 
-  onPasswordChange = event => {
-    this.setState({ signInPassword: event.target.value });
-  };
+//   onPasswordChange = event => {
+//     this.setState({ signInPassword: event.target.value });
+//   };
 
-  onSubmitSignIn = () => {
-    fetch('http://localhost:3000/signin', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: this.state.signInEmail,
-        password: this.state.signInPassword,
-      }),
-    })
-      .then(response => response.json())
-      .then(user => {
-        if (user.id) {
-          this.props.loadUser(user);
-          this.props.onRouteChange('home');
-        }
-      });
-  };
+//   onSubmitSignIn = () => {  
+//  this.state.signInEmail,
+//   this.state.signInPassword
+   
+//       .then(response => response.json())
+//       .then(user => {
+//         if (user.id) {
+//           this.props.loadUser(user)
+//           this.props.onRouteChange('home');
+//         }
+//       })
+//   };
 
-  render() {
-    const { onRouteChange } = this.props;
+ 
+    // const { onRouteChange } = this.props;
     return (
       <article className="center br3 ba shadow-5 b--white-10 mv4 w-100 w-50-m w-25-l mw6 formColor">
         <main className="pa4 white-80 center">
@@ -52,7 +47,7 @@ class Signin extends React.Component {
                   type="email"
                   name="email-address"
                   id="email-address"
-                  onChange={this.onEmailChange}
+                  // onChange={this.onEmailChange}
                 />
               </div>
               <div className="mv3">
@@ -64,14 +59,14 @@ class Signin extends React.Component {
                   type="password"
                   name="password"
                   id="password"
-                  onChange={this.onPasswordChange}
+                  // onChange={this.onPasswordChange}
                 />
               </div>
             </fieldset>
             <div className="center">
               <input
-                onClick={this.onSubmitSignIn}
-                className=" white b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib"
+                onClick={() => onRouteChange('home')}
+                className=" white b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib "
                 type="submit"
                 value="Sign in"
               />
@@ -79,8 +74,7 @@ class Signin extends React.Component {
             <div className="lh-copy mt3 center">
               <p
                 onClick={() => onRouteChange('register')}
-                className="f6 link dim white db pointer"
-              >
+                className="f6 link dim white db pointer">
                 Register
               </p>
             </div>
@@ -89,6 +83,6 @@ class Signin extends React.Component {
       </article>
     );
   }
-}
 
-export default Signin;
+
+export default SignIn;
