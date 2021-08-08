@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Padauk:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
 
 body {
   margin: 0;
@@ -11,7 +10,7 @@ body {
   background-size: cover;
   width: 100%;
   min-height: 100vh;
-  font-family: 'Padauk', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 button {
   cursor: pointer;
